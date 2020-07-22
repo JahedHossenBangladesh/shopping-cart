@@ -29,7 +29,7 @@
                            <input type="text" class="form-control text-center" id="phoneVolume" value="1">
                            <button class="btn btn-default" id="plusBtn" ><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="phonePrice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -80,20 +80,40 @@
 <script>
 const plusBtn = document.getElementById('plusBtn'); //the plus button is added
 plusBtn.addEventListener('click',function(){
-const phoneVolume = document.getElementById("phoneVolume").value;
-const addPhoneVolume =parseFloat(phoneVolume);
-document.getElementById("phoneVolume").value = addPhoneVolume + 1;
+   increment('phoneVolume');
+   const phonePrice = document.getElementById("phonePrice");
+   const addPrice = parseFloat(phonePrice);
+   const total = addPrice + 1219;
+   document.getElementById("phonePrice").innerText = total;
 
 })
 
 const minusBtn = document.getElementById('minusBtn');
 minusBtn.addEventListener('click',function(){
-   const phoneVolume = document.getElementById("phoneVolume").value;
-const subtractPhoneVolume =parseFloat(phoneVolume);
-document.getElementById("phoneVolume").value = subtractPhoneVolume - 1;
+   decrease("phoneVolume");
+  
+
+
+//    const phoneVolume = document.getElementById("phoneVolume").value;
+// const subtractPhoneVolume =parseFloat(phoneVolume);
+// document.getElementById("phoneVolume").value = subtractPhoneVolume - 1;
 })
 
 
+function increment(id){
+
+   const volume = document.getElementById(id).value;
+const addVolume =parseFloat(volume);
+document.getElementById(id).value = addVolume + 1;
+
+}
+
+function decrease(id){
+   const volume = document.getElementById(id).value;
+const addVolume =parseFloat(volume);
+document.getElementById(id).value = addVolume - 1;
+
+}
 
 
 
