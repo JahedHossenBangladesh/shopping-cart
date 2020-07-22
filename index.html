@@ -81,9 +81,16 @@
 const plusBtn = document.getElementById('plusBtn'); //the plus button is added
 plusBtn.addEventListener('click',function(){
 const phoneVolume = document.getElementById("phoneVolume").value;
-const addphoneVolume =parseFloat(phoneVolume);
-document.getElementById("phoneVolume").value = addphoneVolume + 1;
+const addPhoneVolume =parseFloat(phoneVolume);
+document.getElementById("phoneVolume").value = addPhoneVolume + 1;
 
+})
+
+const minusBtn = document.getElementById('minusBtn');
+minusBtn.addEventListener('click',function(){
+   const phoneVolume = document.getElementById("phoneVolume").value;
+const subtractPhoneVolume =parseFloat(phoneVolume);
+document.getElementById("phoneVolume").value = subtractPhoneVolume - 1;
 })
 
 
