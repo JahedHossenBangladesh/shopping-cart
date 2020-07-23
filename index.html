@@ -25,9 +25,9 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default" id="minusBtn" ><i class="fas fa-minus"></i></button>
+                           <button class="btn btn-default" id="phoneMinusBtn" ><i class="fas fa-minus"></i></button>
                            <input type="text" class="form-control text-center" id="phoneVolume" value="1">
-                           <button class="btn btn-default" id="plusBtn" ><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default" id="phonePlusBtn" ><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$ <span id="phonePrice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default" id="caseMinusBtn" ><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" id="caseVolume" value="1">
+                           <button class="btn btn-default" id="casePlusBtn"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="casePrice">59 </span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5 >$ <span id="totalPrice">1278 </span></h5>
+                        <h5 >$ <span id="subtotal">1278 </span></h5>
                         <h5>$0</h5>
-                        <h5 >$ <span class="totalPrice">1278 </span></h5>
+                        <h5 >$ <span id="total">1278 </span></h5>
                      </div>
                   </div>
                </div>
@@ -78,7 +78,8 @@
       </div>
    </section>
 <script>
-const plusBtn = document.getElementById('plusBtn'); //the plus button is added
+   //this is for phone
+const plusBtn = document.getElementById('phonePlusBtn'); //the plus button is added
 plusBtn.addEventListener('click',function(){
    increment('phoneVolume');
 
@@ -87,23 +88,81 @@ plusBtn.addEventListener('click',function(){
   const totalPhonePrice = document.getElementById("phonePrice").innerText = addPrice  + 1219  ;
 
 
-   const totalPrice = document.getElementById("totalPrice").innerText;
-   const  addTotalPrice = parseFloat(totalPrice);
-   document.getElementById('totalPrice').innerText = addTotalPrice + 1219 ;
+   const sugTotalPrice = document.getElementById("subtotal").innerText;
+   const  addTotal = parseFloat(sugTotalPrice);
+   document.getElementById('subtotal').innerText = addTotal + 1219 ;
+
+
+   
+   const totalPrice = document.getElementById("total").innerText;
+   const  total = parseFloat(totalPrice);
+   document.getElementById('total').innerText = total + 1219 ;
+
 
 
 })
 
-const minusBtn = document.getElementById('minusBtn');
+const minusBtn = document.getElementById('phoneMinusBtn');
 minusBtn.addEventListener('click',function(){
    decrease("phoneVolume");
    const phonePrice = document.getElementById("phonePrice").innerText;
    const addPrice = parseFloat(phonePrice);
    document.getElementById("phonePrice").innerText = addPrice - 1219;
 
+   
+   const sugTotalPrice = document.getElementById("subtotal").innerText;
+   const  addTotal = parseFloat(sugTotalPrice);
+   document.getElementById('subtotal').innerText = addTotal - 1219 ;
+
+
+   
+   const totalPrice = document.getElementById("total").innerText;
+   const  total = parseFloat(totalPrice);
+   document.getElementById('total').innerText = total - 1219 ;
+
+})
+// this is for case
+const casePlusBtn = document.getElementById('casePlusBtn');
+casePlusBtn.addEventListener('click', function(){
+   increment("caseVolume");
+
+   
+   const phonePrice = document.getElementById("casePrice").innerText;
+   const addPrice = parseFloat(phonePrice);
+  const totalPhonePrice = document.getElementById("casePrice").innerText = addPrice  + 59 ;
+
+
+  const sugTotalPrice = document.getElementById("subtotal").innerText;
+   const  addTotal = parseFloat(sugTotalPrice);
+   document.getElementById('subtotal').innerText = addTotal + 59 ;
+  
+   const totalPrice = document.getElementById("total").innerText;
+   const  total = parseFloat(totalPrice);
+   document.getElementById('total').innerText = total + 59 ;
+})
+
+const caseMinusBtn = document.getElementById('caseMinusBtn');
+caseMinusBtn.addEventListener("click", function(){
+    decrease("caseVolume");
+
+    const phonePrice = document.getElementById("casePrice").innerText;
+   const addPrice = parseFloat(phonePrice);
+   document.getElementById("casePrice").innerText = addPrice - 59;
+
+
+   const sugTotalPrice = document.getElementById("subtotal").innerText;
+   const  addTotal = parseFloat(sugTotalPrice);
+   document.getElementById('subtotal').innerText = addTotal - 59 ;
+
+
+   
+   const totalPrice = document.getElementById("total").innerText;
+   const  total = parseFloat(totalPrice);
+   document.getElementById('total').innerText = total - 59 ;
 })
 
 
+//this is function
 function increment(id){
 
    const volume = document.getElementById(id).value;
