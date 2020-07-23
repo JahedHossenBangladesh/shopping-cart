@@ -82,83 +82,38 @@
 const plusBtn = document.getElementById('phonePlusBtn'); //the plus button is added
 plusBtn.addEventListener('click',function(){
    increment('phoneVolume');
-
-   const phonePrice = document.getElementById("phonePrice").innerText;
-   const addPrice = parseFloat(phonePrice);
-  const totalPhonePrice = document.getElementById("phonePrice").innerText = addPrice  + 1219  ;
-
-
-   const sugTotalPrice = document.getElementById("subtotal").innerText;
-   const  addTotal = parseFloat(sugTotalPrice);
-   document.getElementById('subtotal').innerText = addTotal + 1219 ;
-
-
-   
-   const totalPrice = document.getElementById("total").innerText;
-   const  total = parseFloat(totalPrice);
-   document.getElementById('total').innerText = total + 1219 ;
-
-
-
+   var fixedPrice = 1219;
+   addedprice("phonePrice", fixedPrice);
+  addedprice("subtotal", fixedPrice);
+  addedprice("total", fixedPrice);
 })
 
 const minusBtn = document.getElementById('phoneMinusBtn');
 minusBtn.addEventListener('click',function(){
    decrease("phoneVolume");
-   const phonePrice = document.getElementById("phonePrice").innerText;
-   const addPrice = parseFloat(phonePrice);
-   document.getElementById("phonePrice").innerText = addPrice - 1219;
-
-   
-   const sugTotalPrice = document.getElementById("subtotal").innerText;
-   const  addTotal = parseFloat(sugTotalPrice);
-   document.getElementById('subtotal').innerText = addTotal - 1219 ;
-
-
-   
-   const totalPrice = document.getElementById("total").innerText;
-   const  total = parseFloat(totalPrice);
-   document.getElementById('total').innerText = total - 1219 ;
-
-})
+   var fixedPrice = 1219;
+   decreasePrice("phonePrice",fixedPrice);
+   decreasePrice("subtotal",fixedPrice);
+    decreasePrice("total",fixedPrice);
+ })
 // this is for case
 const casePlusBtn = document.getElementById('casePlusBtn');
 casePlusBtn.addEventListener('click', function(){
    increment("caseVolume");
-
-   
-   const phonePrice = document.getElementById("casePrice").innerText;
-   const addPrice = parseFloat(phonePrice);
-  const totalPhonePrice = document.getElementById("casePrice").innerText = addPrice  + 59 ;
-
-
-  const sugTotalPrice = document.getElementById("subtotal").innerText;
-   const  addTotal = parseFloat(sugTotalPrice);
-   document.getElementById('subtotal').innerText = addTotal + 59 ;
-  
-   const totalPrice = document.getElementById("total").innerText;
-   const  total = parseFloat(totalPrice);
-   document.getElementById('total').innerText = total + 59 ;
-})
+   var fixedPrice = 59;
+   addedprice("casePrice",fixedPrice)
+   addedprice("subtotal",fixedPrice)
+   addedprice("total",fixedPrice)
+  })
 
 const caseMinusBtn = document.getElementById('caseMinusBtn');
 caseMinusBtn.addEventListener("click", function(){
     decrease("caseVolume");
-
-    const phonePrice = document.getElementById("casePrice").innerText;
-   const addPrice = parseFloat(phonePrice);
-   document.getElementById("casePrice").innerText = addPrice - 59;
-
-
-   const sugTotalPrice = document.getElementById("subtotal").innerText;
-   const  addTotal = parseFloat(sugTotalPrice);
-   document.getElementById('subtotal').innerText = addTotal - 59 ;
-
-
+    var fixedPrice = 59;
+   decreasePrice("casePrice",fixedPrice);
+   decreasePrice("subtotal",fixedPrice);
+   decreasePrice("total",fixedPrice);
    
-   const totalPrice = document.getElementById("total").innerText;
-   const  total = parseFloat(totalPrice);
-   document.getElementById('total').innerText = total - 59 ;
 })
 
 
@@ -166,17 +121,55 @@ caseMinusBtn.addEventListener("click", function(){
 function increment(id){
 
    const volume = document.getElementById(id).value;
-const addVolume =parseFloat(volume);
-document.getElementById(id).value = addVolume + 1;
-
+const addVolume = parseFloat(volume);
+const total = document.getElementById(id).value = addVolume + 1;
+if( total <= 0){
+   document.getElementById(id).volue = 0;}
 }
 
 function decrease(id){
    const volume = document.getElementById(id).value;
 const addVolume =parseFloat(volume);
-document.getElementById(id).value = addVolume - 1;
+const totalVolume = document.getElementById(id).value = addVolume - 1;
+if( totalVolume <= 0){
+   document.getElementById(id).value = 0;}
 
 }
+
+
+function addedprice(id,newAddPrice){
+   const price = document.getElementById(id).innerText; //phonePrice
+   const addPrice = parseFloat(price);
+  const totalPrice = document.getElementById(id).innerText = addPrice  + newAddPrice ;
+
+  }
+//  return totalPhonePrice;
+
+
+function decreasePrice(id,newAddPrice){
+   const price = document.getElementById(id).innerText; //phonePrice
+   const addPrice = parseFloat(price);
+  const totalPrice = document.getElementById(id).innerText = addPrice  - newAddPrice ;
+  if( totalPrice <= 0){
+   document.getElementById(id).innerText = 0;
+  }
+
+
+}
+
+//this just for the begaing stage who wanna use the code 
+//increase 
+ // const totalPrice = document.getElementById("total").innerText;
+   // const  total = parseFloat(totalPrice);
+   // document.getElementById('total').innerText = total + 59 ;
+
+
+//decrease 
+// const totalPrice = document.getElementById("total").innerText;
+//     const  total = parseFloat(totalPrice);
+//    document.getElementById('total').innerText = total - 59 ;
+
+
 
 
 
