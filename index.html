@@ -81,17 +81,18 @@
 const plusBtn = document.getElementById('plusBtn'); //the plus button is added
 plusBtn.addEventListener('click',function(){
    increment('phoneVolume');
-   const phonePrice = document.getElementById("phonePrice");
+   const phonePrice = document.getElementById("phonePrice").innerText;
    const addPrice = parseFloat(phonePrice);
-   const total = addPrice + 1219;
-   //document.getElementById("phonePrice").innerText = total;
+   document.getElementById("phonePrice").innerText = addPrice + 1219;
 
 })
 
 const minusBtn = document.getElementById('minusBtn');
 minusBtn.addEventListener('click',function(){
    decrease("phoneVolume");
-  
+   const phonePrice = document.getElementById("phonePrice").innerText;
+   const addPrice = parseFloat(phonePrice);
+   document.getElementById("phonePrice").innerText = addPrice - 1219;
 
 
 //    const phoneVolume = document.getElementById("phoneVolume").value;
