@@ -14,9 +14,9 @@
 
    <section>
       <div class="container" id="upper">
-         <div class="cart">
+         <div class="cart"  >
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
+               <div class="cart-item" id="phone" >
                   <div class="row">
                      <div class="col-md-7 center-item">
                         <img src="images/product-1.png" alt="">
@@ -30,12 +30,12 @@
                            <button class="btn btn-default" id="phonePlusBtn" ><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$ <span id="phonePrice">0</span></h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img src="images/remove.png" alt="" class="remove-item" id ="remove-item1">
                      </div>
                   </div>
                </div>
 
-               <div class="cart-item">
+               <div class="cart-item " id="case">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
                         <img src="images/product-2.png" alt="">
@@ -49,7 +49,7 @@
 
                         </div>
                         <h5>$ <span id="casePrice">0 </span></h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img src="images/remove.png" alt="" class="remove-item"   id="remove-item">
                      </div>
                   </div>
                </div>
@@ -133,7 +133,19 @@ lower.addEventListener('click',function(){
    var hide = document.getElementById("hide");
    hide.style.display = "block";
 })
+// this is for cross
+var removeItem1= document.getElementById("remove-item1");
+removeItem1.addEventListener('click',function(){
+   var phoneCross =document.getElementById("phone");
+   phoneCross.style.display = "none";
 
+})
+var removeItem= document.getElementById("remove-item");
+removeItem.addEventListener('click',function(){
+   var caseCross =document.getElementById("case");
+   caseCross.style.display = "none";
+
+})
 //this is function
 function increment(id){
 
