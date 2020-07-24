@@ -53,3 +53,10 @@ body{
 	background-color: #2FBE70;
 	border: none;
 }
+
+#hide {
+	display: none;
+	padding: 10px;
+	margin: 10px;
+	background-color: yellow;
+}

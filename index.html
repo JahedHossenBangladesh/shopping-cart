@@ -13,7 +13,7 @@
 <body>
 
    <section>
-      <div class="container">
+      <div class="container" id="upper">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
                <div class="cart-item">
@@ -26,10 +26,10 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default" id="phoneMinusBtn" ><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" id="phoneVolume" value="1">
+                           <input type="text" class="form-control text-center" id="phoneVolume" value="0">
                            <button class="btn btn-default" id="phonePlusBtn" ><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$ <span id="phonePrice">1219</span></h5>
+                        <h5>$ <span id="phonePrice">0</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -44,11 +44,11 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default" id="caseMinusBtn" ><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" id="caseVolume" value="1">
+                           <input type="text" class="form-control text-center" id="caseVolume" value="0">
                            <button class="btn btn-default" id="casePlusBtn"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$ <span id="casePrice">59 </span></h5>
+                        <h5>$ <span id="casePrice">0 </span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,19 +64,25 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5 >$ <span id="subtotal">1278 </span></h5>
-                        <h5>$0</h5>
-                        <h5 >$ <span id="total">1278 </span></h5>
+                        <h5 >$ <span id="subtotal">0 </span></h5>
+                        <h5>$ <span id="tax">0</span></h5>
+                        <h5 >$ <span id="total">0</span></h5>
                      </div>
                   </div>
                </div>
                <div class="col-md-12 pt-4 pb-4">
-                  <button type="button" class="btn btn-success check-out">Check Out</button>
+                  <button type="button" class="btn btn-success check-out" id="lower">Check Out</button>
                </div>
             </div>
          </div>
       </div>
    </section>
+   <div class="container" id="hide">
+             <div class="text-center">
+                <h2> I am Done</h2>
+             </div>
+
+   </div>
 <script>
    //this is for phone
 const plusBtn = document.getElementById('phonePlusBtn'); //the plus button is added
@@ -85,7 +91,8 @@ plusBtn.addEventListener('click',function(){
    var fixedPrice = 1219;
    addedprice("phonePrice", fixedPrice);
   addedprice("subtotal", fixedPrice);
-  addedprice("total", fixedPrice);
+  addedprice("tax", 5);
+  addedprice("total", 1224);
 })
 
 const minusBtn = document.getElementById('phoneMinusBtn');
@@ -94,7 +101,8 @@ minusBtn.addEventListener('click',function(){
    var fixedPrice = 1219;
    decreasePrice("phonePrice",fixedPrice);
    decreasePrice("subtotal",fixedPrice);
-    decreasePrice("total",fixedPrice);
+   decreasePrice("tax", 5);
+    decreasePrice("total", 1224);
  })
 // this is for case
 const casePlusBtn = document.getElementById('casePlusBtn');
@@ -103,7 +111,8 @@ casePlusBtn.addEventListener('click', function(){
    var fixedPrice = 59;
    addedprice("casePrice",fixedPrice)
    addedprice("subtotal",fixedPrice)
-   addedprice("total",fixedPrice)
+   addedprice("tax", 2);
+   addedprice("total", 61);
   })
 
 const caseMinusBtn = document.getElementById('caseMinusBtn');
@@ -112,10 +121,18 @@ caseMinusBtn.addEventListener("click", function(){
     var fixedPrice = 59;
    decreasePrice("casePrice",fixedPrice);
    decreasePrice("subtotal",fixedPrice);
-   decreasePrice("total",fixedPrice);
+   decreasePrice("tax", 2);
+   decreasePrice("total", 61);
    
 })
-
+// this is for the checkout 
+const lower = document.getElementById('lower');
+lower.addEventListener('click',function(){
+   var upper = document.getElementById('upper');
+   upper.style.display = "none";
+   var hide = document.getElementById("hide");
+   hide.style.display = "block";
+})
 
 //this is function
 function increment(id){
